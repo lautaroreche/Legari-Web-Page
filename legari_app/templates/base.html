@@ -1,0 +1,60 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Exquisite wood sculptures by Fabian Legari">
+    <meta name="keywords" content="esculturas en hierro, esculturas en piedra, esculturas en madera, escultor argentino, arte con materiales naturales, esculturas autóctonas, arte regional argentino, arte y memoria, arte con identidad, esculturas contemporáneas, tradición y arte, arte de provincias argentinas, esculturas únicas, arte con materiales reciclados, escultor patagónico, arte en conexión con la tierra, esculturas culturales, fusión de tradiciones, esculturas artesanales, arte del interior argentino, esculturas con historia">
+    <meta name="author" content="Lautaro Reche">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <title>Fabian Legari - Arte Visual | Objetos</title>
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="flex-between">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo-legari.png' %}" title="Logo">
+            </a>
+            <input type="checkbox" id="check-hamburger-menu">
+            <label for="check-hamburger-menu" class="hamburger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <ul class="flex-center">
+                <li><a href="">El Artista</a></li>
+                <li><a href="">Obras</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <footer>
+    </footer>
+
+    <script>
+        function toggleCheckbox() {
+            document.getElementById('check-hamburger-menu').checked = false;
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+        
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
