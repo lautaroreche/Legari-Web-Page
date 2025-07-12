@@ -23,16 +23,16 @@
 <body>
     <header>
         <nav class="flex">
-            <a href="{% url 'home' %}" class="flex">
+            <a href="/" class="flex">
                 <img src="{% static 'images/logo-legari.png' %}" title="Logo" class="logo">
             </a>
             <input type="checkbox" id="check-hamburger-menu">
             <label for="check-hamburger-menu" class="hamburger-menu">
                 <i class="fa-solid fa-bars"></i>
             </label>
-            <ul class="flex menu">
+            <ul class="flex gap40">
                 <li><a href="{% url 'artist' %}">El Artista</a></li>
-                <li><a href="{% url 'work' %}">Obras</a></li>
+                <li><a href="{% url 'work' 'obras-hierro' %}">Obras</a></li>
             </ul>
         </nav>
     </header>
@@ -40,6 +40,41 @@
     {% block content %}{% endblock %}
 
     <footer>
+        <div class="footer-container flex">
+            <div class="flex-col gap10">
+                <h3>Fabian Legari Arte</h3>
+                <p>Esculturas únicas en hierro, piedra y madera</p>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="flex-col gap10">
+                <h4>Contacto</h4>
+                <div class="flex gap10">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>fabianlegariarte@gmail.com</p>
+                </div>
+                <div class="flex gap10">
+                    <i class="fa-solid fa-phone-flip"></i>
+                    <p>+54 9 11 3561-3286</p>
+                </div>
+                <p>Buenos Aires, Argentina</p>
+                
+
+            </div>
+            <div class="flex-col gap20">
+                <h4>Enlaces Rápidos</h4>
+                <ul class="flex-col gap10">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="{% url 'artist' %}">El artista</a></li>
+                    <li><a href="{% url 'work' 'obras-hierro' %}">Obras Hierro</a></li>
+                    <li><a href="{% url 'work' 'obras-piedra-madera' %}">Obras Piedra & Madera</a></li>
+                    <li><a href="{% url 'work' 'obras-madera-hierro' %}">Obras Madera & Hierro</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright">
+            <p>© {{ current_year }} Fabian Legari Arte. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>

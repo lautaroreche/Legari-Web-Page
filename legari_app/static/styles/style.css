@@ -31,6 +31,23 @@ ul {
     justify-content: center;
 }
 
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap10 {
+    gap: 10px;
+}
+
+.gap20 {
+    gap: 20px;
+}
+
+.gap40 {
+    gap: 40px;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -57,10 +74,46 @@ nav ul li a {
     width: 200px;
 }
 
-.menu {
-    gap: 40px;
-}
-
 #check-hamburger-menu, .hamburger-menu {
     display: none;
+}
+
+.temporary {
+    height: 600px;
+    background-color: aqua;
+}
+
+footer {
+    background-color: #F2E1CE;
+    padding: 3rem;
+}
+
+h3, h4 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+footer p {
+    font-size: 1.1rem;
+}
+
+i {
+    font-size: 1.5rem;
+}
+
+.footer-container {
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+hr {
+    border: none;
+    height: 1px;             /* altura de la línea */
+    background-color: var(--grey-color);   /* color de la línea */
+}
+
+.copyright {
+    text-align: center;
+    margin: 20px 10px 0 10px;
 }
