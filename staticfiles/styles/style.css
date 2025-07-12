@@ -1,0 +1,195 @@
+:root {
+    --dark-color: #111;
+    --light-color: #fdfdfd;
+    --grey-color: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', 'Raleway', serif;
+    color: var(--dark-color);
+    letter-spacing: 0.3px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap10 {
+    gap: 10px;
+}
+
+.gap20 {
+    gap: 20px;
+}
+
+.gap40 {
+    gap: 40px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 40px;
+    background-color: var(--light-color);
+    z-index: 1000;
+    box-shadow: 0 0px 5px var(--grey-color);
+    border-bottom: 1px solid var(--grey-color);
+}
+
+nav ul li a {
+    font-size: 1.125rem;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+
+#check-hamburger-menu, .hamburger-menu {
+    display: none;
+}
+
+.first {
+    padding-top: 10vh;
+}
+
+.hero img {
+    width: 100%;
+}
+
+.banner {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-intro {
+    margin-top: 10vh;
+    height: 50vh;
+}
+
+.banner-intro-artist {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-artist.webp);
+}
+
+.banner-intro-obras-hierro {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-iron.webp);
+}
+
+.banner-intro-obras-piedra-madera {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-stone-wood.webp);
+}
+
+.banner-intro-obras-madera-hierro {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-wood-iron.webp);
+}
+
+.banner-download {
+    height: 35vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(../images/banner-download.webp);
+}
+
+.banner p {
+    max-width: 700px;
+    text-align: center;
+    font-size: 1.125rem;
+}
+
+.banner h2, .banner p {
+    color: var(--light-color);
+}
+
+.banner p, .banner a, footer p, footer a {
+    font-family: 'Raleway';
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+main, section {
+    padding: 2rem;
+    background-color: aqua;
+    text-align: center;
+}
+
+.button {
+    background-color: var(--light-color);
+    padding: 12px 32px;
+}
+
+footer {
+    background-color: #F2E1CE;
+    padding: 2rem;
+}
+
+h3, h4 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+footer p {
+    font-size: 1.1rem;
+}
+
+.fa-instagram {
+    font-size: 1.5rem;
+}
+
+.footer-container {
+    justify-content: space-around;
+}
+
+.footer-container div {
+    max-width: 350px;
+    width: 100%;
+}
+
+.info-container {
+    align-items: center;
+}
+
+hr {
+    margin: 20px;
+    border: none;
+    height: 1px;
+    background-color: var(--grey-color);   /* color de la línea */
+}
+
+.copyright {
+    text-align: center;
+}
