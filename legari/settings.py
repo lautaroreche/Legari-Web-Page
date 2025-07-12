@@ -89,7 +89,6 @@ else:
     ]
 
 
-
 ROOT_URLCONF = 'legari.urls'
 
 TEMPLATES = [
@@ -114,9 +113,12 @@ WSGI_APPLICATION = 'legari.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
-    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=env('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 
