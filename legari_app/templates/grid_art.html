@@ -1,0 +1,16 @@
+{% load static %}
+
+
+<div class="grid-masonry">
+    {% for art in arts %}
+        <a href="" class="card">
+            <img src="{{ art.image.url }}" alt="{{ art.title }}">
+            <div class="card-overlay"></div>
+            <div class="card-info flex-col flex-center gap20">
+                <h3>{{ art.title }}</h3>
+                <p>{{ art.summary }}</p>
+                <p>{{ art.size }} - {{ art.materials }}</p>
+            </div>
+        </a>
+    {% endfor %}
+</div>

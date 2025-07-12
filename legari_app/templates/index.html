@@ -4,18 +4,30 @@
 
 {% block content %}
     <div class="hero first">
-        <img src="{% static 'images/hero-image.webp' %}" alt="">
+        <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp" alt="Objetos y arte visual">
     </div>
-    <main>
+    <main class="flex-col flex-center">
         <h2>Obras Destacadas</h2>
-        <!-- Include arts -->
+        {% include 'grid_art.html' %}
     </main>
     <section>
         <h2>Explora las Colecciones</h2>
-        <div>
-            <!-- Foto de colección con link y texto -->
-            <!-- Foto de colección con link y texto -->
-            <!-- Foto de colección con link y texto -->
+        <div class="flex-center gap20">
+            <a href="{% url 'work' 'obras-hierro' %}" class="card flex-center">
+                <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752345192/foto-categoria-obras-hierro_nc1odl.jpg" alt="Obras Hierro">
+                <div class="card-overlay"></div>
+                <h3>Obras Hierro</h3>
+            </a>
+            <a href="{% url 'work' 'obras-piedra-madera' %}" class="card flex-center">
+                <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752345192/foto-categoria-obras-piedra-madera_dfr6hp.jpg" alt="Obras Piedra & Madera">
+                <div class="card-overlay"></div>
+                <h3>Obras Piedra & Madera</h3>
+            </a>
+            <a href="{% url 'work' 'obras-madera-hierro' %}" class="card flex-center">
+                <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752345191/foto-categoria-obras-madera-hierro_yl8fh5.jpg" alt="Obras Madera & Hierro">
+                <div class="card-overlay"></div>
+                <h3>Obras Madera & Hierro</h3>
+            </a>
         </div>
     </section>
     <div class="banner banner-download flex-col flex-center gap20">

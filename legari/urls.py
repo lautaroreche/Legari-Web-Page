@@ -20,7 +20,7 @@ from legari_app.views import home, artist, work
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', home, name = 'home'),
     path('el-artista', artist, name='artist'),
     path('<str:art_type>', work, name='work'),

@@ -101,24 +101,24 @@ nav ul li a {
 }
 
 .banner-intro-artist {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-artist.webp);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344939/banner-artist_ibfqy5.webp');
 }
 
 .banner-intro-obras-hierro {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-iron.webp);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344859/banner-iron_tt1aot.webp');
 }
 
 .banner-intro-obras-piedra-madera {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-stone-wood.webp);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344497/banner-stone-wood_aqoan6.webp');
 }
 
 .banner-intro-obras-madera-hierro {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-wood-iron.webp);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344497/banner-wood-iron_wvcs97.webp');
 }
 
 .banner-download {
-    height: 35vh;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(../images/banner-download.webp);
+    height: 40vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344939/banner-download_pneppe.webp');
 }
 
 .banner p {
@@ -141,14 +141,73 @@ h2 {
 }
 
 main, section {
-    padding: 2rem;
-    background-color: aqua;
+    margin: 3rem 5rem;
     text-align: center;
 }
 
 .button {
     background-color: var(--light-color);
     padding: 12px 32px;
+}
+
+.grid-masonry {
+    column-count: 3;
+    column-gap: 1rem;
+}
+
+.card {
+    margin-bottom: 1rem;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.card-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.card-info h3, .card-info p {
+    color: var(--light-color);
+}
+
+.card:hover .card-overlay, .card:hover .card-info {
+    opacity: 1;
+}
+
+.card:hover img {
+    transform: scale(1.01);
 }
 
 footer {
@@ -187,7 +246,7 @@ hr {
     margin: 20px;
     border: none;
     height: 1px;
-    background-color: var(--grey-color);   /* color de la línea */
+    background-color: var(--grey-color);
 }
 
 .copyright {
