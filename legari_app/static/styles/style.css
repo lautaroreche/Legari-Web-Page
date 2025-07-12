@@ -140,6 +140,12 @@ h2 {
     font-weight: 300;
 }
 
+main, section {
+    padding: 2rem;
+    background-color: aqua;
+    text-align: center;
+}
+
 .button {
     background-color: var(--light-color);
     padding: 12px 32px;
@@ -171,6 +177,10 @@ footer p {
 .footer-container div {
     max-width: 350px;
     width: 100%;
+}
+
+.info-container {
+    align-items: center;
 }
 
 hr {
