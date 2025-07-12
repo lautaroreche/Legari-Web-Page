@@ -77,7 +77,7 @@ if env("DEBUG", default=False):
     ]
 else:
     MIDDLEWARE = [
-        'legari_app.middleware.redirect',
+        'legari_app.middleware.redirect.WWWRedirectMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
