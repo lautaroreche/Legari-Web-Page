@@ -66,7 +66,8 @@ CLOUDINARY_STORAGE = {
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
-COMMON_MIDDLEWARE = [
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -74,16 +75,10 @@ COMMON_MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+if not env("DEBUG", default=False):
+    MIDDLEWARE.insert(0, 'portfolio_app.middleware.www_redirect.WWWRedirectMiddleware')
+    MIDDLEWARE.append('whitenoise.middleware.WhiteNoiseMiddleware')
 
-if env.bool("DEBUG", default=False):
-    MIDDLEWARE = COMMON_MIDDLEWARE
-else:
-    MIDDLEWARE = [
-        'legari_app.middleware.www_redirect.WWWRedirectMiddleware',
-        'django.middleware.security.SecurityMiddleware',
-        *COMMON_MIDDLEWARE,
-        'whitenoise.middleware.WhiteNoiseMiddleware',
-    ]
 
 
 ROOT_URLCONF = 'legari.urls'
