@@ -16,23 +16,28 @@
     <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav class="flex-between">
-            <a href="{% url 'home' %}">
-                <img src="{% static 'images/logo-legari.png' %}" title="Logo">
+        <nav class="flex">
+            <a href="{% url 'home' %}" class="flex">
+                <img src="{% static 'images/logo-legari.png' %}" title="Logo" class="logo">
             </a>
             <input type="checkbox" id="check-hamburger-menu">
             <label for="check-hamburger-menu" class="hamburger-menu">
                 <i class="fa-solid fa-bars"></i>
             </label>
-            <ul class="flex-center">
-                <li><a href="">El Artista</a></li>
-                <li><a href="">Obras</a></li>
+            <ul class="flex menu">
+                <li><a href="{% url 'artist' %}">El Artista</a></li>
+                <li><a href="{% url 'work' %}">Obras</a></li>
             </ul>
         </nav>
     </header>
+
+    {% block content %}{% endblock %}
 
     <footer>
     </footer>
