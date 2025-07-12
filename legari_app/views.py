@@ -11,6 +11,10 @@ def artist(request):
     return render(request, 'artist.html', context)
 
 
-def work(request):
+def work(request, art_type):
     context = {}
-    return render(request, 'work.html', context)
+    if art_type in ['obras-hierro', 'obras-piedra-madera', 'obras-madera-hierro']:
+        return render(request, 'work.html', context)
+    return render(request, 'index.html', context)
+
+    
