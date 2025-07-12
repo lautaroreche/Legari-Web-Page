@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block content %}
-    <div class="temporary"></div>
-    <!-- Section > Hero -->
-    <!-- Main > Obras destacadas -->
-    <!-- Section > Explora las colecciones -->
-    <!-- Section > Descarga el catálogo completo de obras -->
+    <div class="hero first">
+        <img src="{% static 'images/hero-image.webp' %}" alt="">
+    </div>
+    <main>
+        <h2>Obras Destacadas</h2>
+        <!-- Include arts -->
+    </main>
+    <section>
+        <h2>Explora las Colecciones</h2>
+        <div>
+            <!-- Foto de colección con link y texto -->
+            <!-- Foto de colección con link y texto -->
+            <!-- Foto de colección con link y texto -->
+        </div>
+    </section>
+    <div class="banner banner-download flex-col flex-center gap20">
+        <h2>Descarga el catálogo completo de obras</h2>
+        <p>Explora nuestra colección completa de esculturas en detalle. Descarga nuestro catálogo digital y descubre la historia detrás de cada pieza.</p>
+        <a href="https://jahqgqfef8av9bbs.public.blob.vercel-storage.com/FabianLegariArte/Libro%20web%20%281%29-iEV4Ox3kNAxnWsIXIbNbouvCPjtXby.pdf" target="_blank" rel="noopener noreferrer" class="button">Descargar</a>
+    </div>
 {% endblock %}

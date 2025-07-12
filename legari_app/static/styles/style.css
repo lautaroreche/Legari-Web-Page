@@ -1,6 +1,6 @@
 :root {
     --dark-color: #111;
-    --light-color: #fbfbfb;
+    --light-color: #fdfdfd;
     --grey-color: #ccc;
 }
 
@@ -8,8 +8,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Playfair Display, serif;
+    font-family: 'Playfair Display', 'Raleway', serif;
     color: var(--dark-color);
+    letter-spacing: 0.3px;
 }
 
 a {
@@ -52,14 +53,15 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 9vh;
+    width: 100%;
+    height: 10vh;
     justify-content: flex-end;
     align-items: center;
     padding: 0 40px;
     background-color: var(--light-color);
     z-index: 1000;
-    box-shadow: 0 0px 10px var(--grey-color);
+    box-shadow: 0 0px 5px var(--grey-color);
+    border-bottom: 1px solid var(--grey-color);
 }
 
 nav ul li a {
@@ -78,14 +80,74 @@ nav ul li a {
     display: none;
 }
 
-.temporary {
-    height: 600px;
-    background-color: aqua;
+.first {
+    padding-top: 10vh;
+}
+
+.hero img {
+    width: 100%;
+}
+
+.banner {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-intro {
+    margin-top: 10vh;
+    height: 50vh;
+}
+
+.banner-intro-artist {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-artist.webp);
+}
+
+.banner-intro-obras-hierro {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-iron.webp);
+}
+
+.banner-intro-obras-piedra-madera {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-stone-wood.webp);
+}
+
+.banner-intro-obras-madera-hierro {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../images/banner-wood-iron.webp);
+}
+
+.banner-download {
+    height: 35vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(../images/banner-download.webp);
+}
+
+.banner p {
+    max-width: 700px;
+    text-align: center;
+    font-size: 1.125rem;
+}
+
+.banner h2, .banner p {
+    color: var(--light-color);
+}
+
+.banner p, .banner a, footer p, footer a {
+    font-family: 'Raleway';
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.button {
+    background-color: var(--light-color);
+    padding: 12px 32px;
 }
 
 footer {
     background-color: #F2E1CE;
-    padding: 3rem;
+    padding: 2rem;
 }
 
 h3, h4 {
@@ -98,22 +160,26 @@ footer p {
     font-size: 1.1rem;
 }
 
-i {
+.fa-instagram {
     font-size: 1.5rem;
 }
 
 .footer-container {
     justify-content: space-around;
-    padding: 20px 0;
+}
+
+.footer-container div {
+    max-width: 350px;
+    width: 100%;
 }
 
 hr {
+    margin: 20px;
     border: none;
-    height: 1px;             /* altura de la línea */
+    height: 1px;
     background-color: var(--grey-color);   /* color de la línea */
 }
 
 .copyright {
     text-align: center;
-    margin: 20px 10px 0 10px;
 }

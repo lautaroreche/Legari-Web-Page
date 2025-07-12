@@ -13,8 +13,15 @@ def artist(request):
 
 def work(request, art_type):
     context = {}
-    if art_type in ['obras-hierro', 'obras-piedra-madera', 'obras-madera-hierro']:
-        return render(request, 'work.html', context)
+    art = {
+        'obras-hierro': 'Obras Hierro',
+        'obras-piedra-madera': 'Obras Piedra & Madera',
+        'obras-madera-hierro': 'Obras Madera & Hierro',
+    }
+    if art_type in art:
+        context['art_type'] = art_type
+        context['title'] = art[art_type]
+        return render(request, 'arts.html', context)
     return render(request, 'index.html', context)
 
     
