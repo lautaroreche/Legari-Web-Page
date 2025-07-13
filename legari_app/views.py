@@ -4,6 +4,8 @@ from legari_app.models import Art
 
 def home(request):
     context = {}
+    arts = Art.objects.filter(starred=True)
+    context['arts'] = arts
     return render(request, 'index.html', context)
 
 
@@ -13,8 +15,8 @@ def artist(request):
 
 
 def work(request, art_type):
-    arts = Art.objects.filter(art_type=art_type)
     context = {}
+    arts = Art.objects.filter(art_type=art_type)
     art = {
         'obras-hierro': 'Obras Hierro',
         'obras-piedra-madera': 'Obras Piedra & Madera',

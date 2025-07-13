@@ -2,6 +2,8 @@
     --dark-color: #111;
     --light-color: #fdfdfd;
     --grey-color: #ccc;
+    --normal-filter: rgba(0, 0, 0, 0.5);
+    --art-filter: rgba(0, 0, 0, 0.75);
 }
 
 * {
@@ -64,6 +66,10 @@ nav {
     border-bottom: 1px solid var(--grey-color);
 }
 
+nav ul {
+    gap: 30px;
+}
+
 nav ul li a {
     font-size: 1.125rem;
 }
@@ -101,19 +107,19 @@ nav ul li a {
 }
 
 .banner-intro-artist {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344939/banner-artist_ibfqy5.webp');
+    background-image: linear-gradient(var(--normal-filter), var(--normal-filter)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344939/banner-artist_ibfqy5.webp');
 }
 
 .banner-intro-obras-hierro {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344859/banner-iron_tt1aot.webp');
+    background-image: linear-gradient(var(--normal-filter), var(--normal-filter)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344859/banner-iron_tt1aot.webp');
 }
 
 .banner-intro-obras-piedra-madera {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344497/banner-stone-wood_aqoan6.webp');
+    background-image: linear-gradient(var(--normal-filter), var(--normal-filter)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344497/banner-stone-wood_aqoan6.webp');
 }
 
 .banner-intro-obras-madera-hierro {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344497/banner-wood-iron_wvcs97.webp');
+    background-image: linear-gradient(var(--normal-filter), var(--normal-filter)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344497/banner-wood-iron_wvcs97.webp');
 }
 
 .banner-download {
@@ -141,6 +147,11 @@ h2 {
 }
 
 main, section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     margin: 3rem 5rem;
     text-align: center;
 }
@@ -161,12 +172,18 @@ main, section {
     position: relative;
     width: 100%;
     overflow: hidden;
+    break-inside: avoid;
     border-radius: 0.5rem;
 }
 
+.card > img {
+    display: block;
+}
+
 .card img {
+    display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 0.5rem;
     transition: transform 0.3s ease;
@@ -178,7 +195,7 @@ main, section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--art-filter);
     border-radius: 0.5rem;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -191,23 +208,30 @@ main, section {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
     padding: 2rem;
     border-radius: 0.5rem;
+}
+
+.card-info-art {
+    opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 2;
+}
+
+.card-info-fixed {
+    background-color: var(--normal-filter);
 }
 
 .card-info h3, .card-info p {
     color: var(--light-color);
 }
 
-.card:hover .card-overlay, .card:hover .card-info {
+.card:hover .card-overlay, .card:hover .card-info-art {
     opacity: 1;
 }
 
 .card:hover img {
-    transform: scale(1.01);
+    transform: scale(1.04);
 }
 
 footer {
@@ -252,3 +276,52 @@ hr {
 .copyright {
     text-align: center;
 }
+
+
+@media (max-width: 900px) {
+    .grid-masonry {
+        column-count: 2;
+    }
+
+    main, section {
+        margin: 3rem;
+    }
+}
+
+
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 1.5rem;
+        position: fixed;
+    }
+
+    .hamburger-menu {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    nav.open .nav-menu {
+        display: flex;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+    }
+}
+

@@ -22,19 +22,18 @@
 </head>
 <body>
     <header>
-        <nav class="flex">
+        <nav class="flex" id="navbar">
             <a href="/" class="flex">
                 <img src="{% static 'images/logo-legari.png' %}" title="Logo" class="logo">
             </a>
-            <input type="checkbox" id="check-hamburger-menu">
-            <label for="check-hamburger-menu" class="hamburger-menu">
+            <div class="hamburger-menu" id="menu-toggle">
                 <i class="fa-solid fa-bars"></i>
-            </label>
-            <ul class="flex gap40">
+            </div>
+            <ul class="flex nav-menu" id="nav-menu">
                 <li><a href="{% url 'artist' %}">El Artista</a></li>
                 <li><a href="{% url 'work' 'obras-hierro' %}">Obras</a></li>
             </ul>
-        </nav>
+        </nav>                   
     </header>
 
     {% block content %}{% endblock %}
@@ -80,23 +79,21 @@
     </footer>
     
     <script>
-        function toggleCheckbox() {
-            document.getElementById('check-hamburger-menu').checked = false;
-        }
-    </script>
-    <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
+            const nav = document.getElementById("navbar");
+            const toggle = document.getElementById("menu-toggle");
+            const links = document.querySelectorAll("#nav-menu a");
         
-            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+            toggle.addEventListener("click", () => {
+                nav.classList.toggle("open");
+            });
+        
+            links.forEach(link => {
+                link.addEventListener("click", () => {
+                    nav.classList.remove("open");
+                });
+            });
         });
-    </script>
+    </script>        
 </body>
 </html>
