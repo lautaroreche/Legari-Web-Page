@@ -95,15 +95,18 @@ nav ul li a {
 }
 
 .banner {
+    padding: 2rem;
     width: 100%;
+    height: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    text-align: center;
 }
 
 .banner-intro {
     margin-top: 10vh;
-    height: 50vh;
+    min-height: 50vh;
 }
 
 .banner-intro-artist {
@@ -123,7 +126,7 @@ nav ul li a {
 }
 
 .banner-download {
-    height: 40vh;
+    min-height: 40vh;
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344939/banner-download_pneppe.webp');
 }
 
@@ -137,7 +140,7 @@ nav ul li a {
     color: var(--light-color);
 }
 
-.banner p, .banner a, footer p, footer a {
+.banner p, .banner a, footer p, footer a, .artist-info-container p {
     font-family: 'Raleway';
 }
 
@@ -234,6 +237,23 @@ main, section {
     transform: scale(1.04);
 }
 
+.fabian {
+    width: 400px;
+    height: 350px;
+    border-radius: 0.5rem;
+}
+
+.artist-info-container h2, .artist-info-container p {
+    max-width: 700px;
+    text-align: left;
+}
+
+.artist-info-container p {
+    font-size: 1.1rem;
+    letter-spacing: 0.4px;
+    line-height: 1.6rem;
+}
+
 footer {
     background-color: #F2E1CE;
     padding: 2rem;
@@ -285,6 +305,18 @@ hr {
 
     main, section {
         margin: 3rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .artist-info-container {
+        flex-direction: column;
+    }
+
+    .fabian {
+        margin: 0 auto;
     }
 }
 
