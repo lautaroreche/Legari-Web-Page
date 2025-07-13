@@ -37,7 +37,7 @@
     </header>
 
     {% block content %}{% endblock %}
-
+    
     <footer>
         <div class="footer-container flex gap40">
             <div class="flex-col gap20">
@@ -58,8 +58,6 @@
                     </div>
                 </div>
                 <p>Buenos Aires, Argentina</p>
-                
-
             </div>
             <div class="flex-col gap20">
                 <h4>Enlaces Rápidos</h4>
@@ -94,6 +92,22 @@
                 });
             });
         });
-    </script>        
+    </script>
+    <script>
+        function abrirModal(artId) {
+            fetch(`/art/${artId}`)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('modal-container').innerHTML = html;
+                });
+        }
+        
+        function cerrarModal() {
+            const modal = document.getElementById('modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+    </script>
 </body>
 </html>
