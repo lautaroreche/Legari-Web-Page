@@ -29,4 +29,9 @@ def work(request, art_type):
         return render(request, 'arts.html', context)
     return render(request, 'index.html', context)
 
-    
+
+def art(request, art_id):
+    context = {}
+    art = Art.objects.get(id=art_id)
+    context['art'] = art
+    return render(request, 'art.html', context)

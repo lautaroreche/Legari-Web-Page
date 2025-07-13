@@ -3,14 +3,17 @@
 
 <div class="grid-masonry">
     {% for art in arts %}
-        <a href="" class="card">
-            <img src="{{ art.image.url }}" alt="{{ art.title }}" loading="lazy">
-            <div class="card-overlay"></div>
-            <div class="card-info card-info-art flex-col flex-center gap20">
-                <h3>{{ art.title }}</h3>
-                <p>{{ art.size }} - {{ art.materials }}</p>
-                <p>{{ art.summary }}</p>
+        <div>
+            <div class="card" onclick="abrirModal({{ art.id }})" style="cursor: pointer;">
+                <img src="{{ art.image.url }}" alt="{{ art.title }}" loading="lazy">
+                <div class="card-overlay"></div>
+                <div class="card-info card-info-art flex-col flex-center gap20">
+                    <h3>{{ art.title }}</h3>
+                    <p>{{ art.size }} - {{ art.materials }}</p>
+                    <p>{{ art.summary }}</p>
+                </div>
             </div>
-        </a>
+        </div>
     {% endfor %}
 </div>
+<div id="modal-container"></div>

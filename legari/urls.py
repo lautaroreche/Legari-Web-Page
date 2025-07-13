@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from legari_app.views import home, artist, work
+from legari_app.views import home, artist, work, art
 
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path('', home, name = 'home'),
     path('el-artista', artist, name='artist'),
     path('<str:art_type>', work, name='work'),
+    path('art/<int:art_id>', art, name='art'),
 ]

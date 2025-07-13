@@ -1,0 +1,14 @@
+{% load static %}
+
+
+<div id="modal" class="flex-center" onclick="cerrarModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="cerrarModal()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img src="{{ art.image.url }}" alt="{{ art.title }}">
+        <h2>{{ art.title }}</h2>
+        <p>{{ art.size }} - {{ art.materials }}</p>
+        <p>{{ art.summary }}</p>
+    </div>
+</div>
