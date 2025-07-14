@@ -99,15 +99,25 @@
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('modal-container').innerHTML = html;
+    
+                    const modal = document.getElementById("modal");
+                    const imagenes = JSON.parse(modal.dataset.images);
+                    let indiceActual = 0;
+    
+                    window.cambiarImagen = function(direccion) {
+                        if (imagenes.length <= 1) return;
+                        indiceActual = (indiceActual + direccion + imagenes.length) % imagenes.length;
+                        document.getElementById("carousel-img").src = imagenes[indiceActual];
+                    }
                 });
         }
-        
+    
         function cerrarModal() {
             const modal = document.getElementById('modal');
             if (modal) {
                 modal.remove();
             }
         }
-    </script>
+    </script>    
 </body>
 </html>

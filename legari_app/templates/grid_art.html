@@ -5,7 +5,7 @@
     {% for art in arts %}
         <div>
             <div class="card" onclick="abrirModal({{ art.id }})" style="cursor: pointer;">
-                <img src="{{ art.image.url }}" alt="{{ art.title }}" loading="lazy">
+                <img src="{{ art.image1.url }}" alt="{{ art.title }}" loading="lazy">
                 <div class="card-overlay"></div>
                 <div class="card-info card-info-art flex-col flex-center gap20">
                     <h3>{{ art.title }}</h3>

@@ -17,7 +17,11 @@ class Art(models.Model):
     materials = models.CharField(_("Materiales"), max_length=150)
     art_type = models.CharField(_("Tipo"), max_length=50, choices=TYPE_CHOICES, default='obras-hierro')
     starred = models.BooleanField(_("Destacada"), default=False)
-    image = CloudinaryField(_("Imagen"), resource_type='image')
+    image1 = CloudinaryField(_("Imagen 1"), resource_type='image')
+    image2 = CloudinaryField(_("Imagen 2"), resource_type='image', blank=True, null=True)
+    image3 = CloudinaryField(_("Imagen 3"), resource_type='image', blank=True, null=True)
+    image4 = CloudinaryField(_("Imagen 4"), resource_type='image', blank=True, null=True)
+    image5 = CloudinaryField(_("Imagen 5"), resource_type='image', blank=True, null=True)
     
     def __str__(self):
         return self.title
