@@ -11,11 +11,11 @@ class Art(models.Model):
     ]
 
     id = models.AutoField(primary_key=True)
-    title = models.CharField(_("Nombre"), max_length=150)
-    summary = models.CharField(_("Descripción"), max_length=400)
-    size = models.CharField(_("Tamaño"), max_length=50)
-    materials = models.CharField(_("Materiales"), max_length=150)
-    art_type = models.CharField(_("Tipo"), max_length=50, choices=TYPE_CHOICES, default='obras-hierro')
+    title = models.CharField(_("Nombre"), max_length=250)
+    summary = models.CharField(_("Descripción"), max_length=500)
+    size = models.CharField(_("Tamaño"), max_length=100)
+    materials = models.CharField(_("Materiales"), max_length=250)
+    art_type = models.CharField(_("Tipo"), max_length=100, choices=TYPE_CHOICES)
     starred = models.BooleanField(_("Destacada"), default=False)
     image1 = CloudinaryField(_("Imagen 1"), resource_type='image')
     image2 = CloudinaryField(_("Imagen 2"), resource_type='image', blank=True, null=True)
