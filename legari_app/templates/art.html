@@ -1,12 +1,26 @@
 {% load static %}
 
 
-<div id="modal" class="flex-center" onclick="cerrarModal()">
+<div id="modal" class="flex-center" onclick="cerrarModal()" data-images='{{ art_images_json|safe }}'>
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="cerrarModal()">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <img src="{{ art.image.url }}" alt="{{ art.title }}">
+
+        <div class="carousel-container flex-center">
+            {% if art.image2 or art.image3 or art.image4 or art.image5 %}
+                <button class="carousel-arrow left" onclick="cambiarImagen(-1)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            {% endif %}
+            <img id="carousel-img" src="{{ art.image1.url }}" alt="{{ art.title }}">
+            {% if art.image2 or art.image3 or art.image4 or art.image5 %}
+                <button class="carousel-arrow right" onclick="cambiarImagen(1)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            {% endif %}
+        </div>
+
         <h4>{{ art.title }}</h4>
         <p>{{ art.size }} - {{ art.materials }}</p>
         <p>{{ art.summary }}</p>

@@ -237,7 +237,7 @@ main, section {
     transform: scale(1.04);
 }
 
-.fabian {
+.artist-image {
     width: 400px;
     height: 350px;
     border-radius: 0.5rem;
@@ -338,8 +338,37 @@ hr {
     object-fit: cover;
 }
 
+.carousel-container {
+    position: relative;
+}
 
-@media (max-width: 900px) {
+.carousel-arrow {
+    background-color: var(--normal-filter);
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 0.6rem;
+    z-index: 1;
+}
+
+.fa-chevron-left, .fa-chevron-right {
+    color: var(--light-color);
+    font-size: 2.5rem;
+}
+
+.carousel-arrow.left {
+    left: 10px;
+}
+
+.carousel-arrow.right {
+    right: 10px;
+}
+
+
+
+@media (max-width: 1000px) {
     .grid-masonry {
         column-count: 2;
     }
@@ -347,7 +376,10 @@ hr {
     main, section {
         margin: 3rem;
     }
+}
 
+
+@media (max-width: 900px) {
     .footer-container {
         flex-direction: column;
     }
@@ -356,7 +388,7 @@ hr {
         flex-direction: column;
     }
 
-    .fabian {
+    .artist-image {
         margin: 0 auto;
     }
 }
