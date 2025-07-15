@@ -1,0 +1,26 @@
+{% load static %}
+
+
+<section>
+    <h2>Explora las Colecciones</h2>
+    <div class="flex-center gap20">
+        <a href="{% url 'work' 'obras-hierro' %}" class="card">
+            <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752345192/foto-categoria-obras-hierro_nc1odl.jpg" alt="Obras Hierro">
+            <div class="card-info card-info-fixed flex-col flex-center gap20">
+                <h3>Obras Hierro</h3>
+            </div>
+        </a>
+        <a href="{% url 'work' 'obras-piedra-madera' %}" class="card">
+            <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752345192/foto-categoria-obras-piedra-madera_dfr6hp.jpg" alt="Obras Piedra & Madera">
+            <div class="card-info card-info-fixed flex-col flex-center gap20">
+                <h3>Obras Piedra & Madera</h3>
+            </div>
+        </a>
+        <a href="{% url 'work' 'obras-madera-hierro' %}" class="card">
+            <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752345191/foto-categoria-obras-madera-hierro_yl8fh5.jpg" alt="Obras Madera & Hierro">
+            <div class="card-info card-info-fixed flex-col flex-center gap20">
+                <h3>Obras Madera & Hierro</h3>
+            </div>
+        </a>
+    </div>
+</section>
