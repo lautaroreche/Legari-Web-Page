@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin', admin.site.urls),
     path('', home, name = 'home'),
     path('el-artista', artist, name='artist'),
+    path('obras', work, name='work'),
     path('<str:art_type>', work, name='work'),
     path('art/<int:art_id>', art, name='art'),
 ]

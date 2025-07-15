@@ -109,7 +109,7 @@ nav ul li a {
     min-height: 50vh;
 }
 
-.banner-intro-artist {
+.banner-intro-general {
     background-image: linear-gradient(var(--normal-filter), var(--normal-filter)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344939/banner-artist_ibfqy5.webp');
 }
 
