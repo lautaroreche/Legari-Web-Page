@@ -2,11 +2,10 @@
 
 
 <div id="modal" class="flex-center" onclick="cerrarModal()" data-images='{{ art_images_json|safe }}'>
-    <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-content flex gap20" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="cerrarModal()">
             <i class="fa-solid fa-xmark"></i>
         </button>
-
         <div class="carousel-container flex-center">
             {% if art.image2 or art.image3 or art.image4 or art.image5 %}
                 <button class="carousel-arrow left" onclick="cambiarImagen(-1)">
@@ -20,9 +19,10 @@
                 </button>
             {% endif %}
         </div>
-
-        <h4>{{ art.title }}</h4>
-        <p>{{ art.size }} - {{ art.materials }}</p>
-        <p>{{ art.summary }}</p>
+        <div class="art-info-container flex-col">
+            <h4>{{ art.title }}</h4>
+            <p>{{ art.size }} - {{ art.materials }}</p>
+            <p>{{ art.summary }}</p>
+        </div>
     </div>
 </div>
