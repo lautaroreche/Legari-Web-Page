@@ -6,19 +6,15 @@
         <button class="modal-close" onclick="cerrarModal()">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="carousel-container flex-center">
-            {% if art.image2 or art.image3 or art.image4 or art.image5 %}
-                <button class="carousel-arrow left" onclick="cambiarImagen(-1)">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-            {% endif %}
-            <img id="carousel-img" src="{{ art.image1.url }}" alt="{{ art.title }}">
-            {% if art.image2 or art.image3 or art.image4 or art.image5 %}
-                <button class="carousel-arrow right" onclick="cambiarImagen(1)">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            {% endif %}
-        </div>
+        {% if art.image2 or art.image3 or art.image4 or art.image5 %}
+            <button class="carousel-arrow left" onclick="cambiarImagen(-1)">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="carousel-arrow right" onclick="cambiarImagen(1)">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        {% endif %}
+        <img id="carousel-img" src="{{ art.image1.url }}" alt="{{ art.title }}">
         <div class="art-info-container flex-col">
             <h4>{{ art.title }}</h4>
             <p>{{ art.size }} - {{ art.materials }}</p>

@@ -56,13 +56,13 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 10vh;
     height: 10vh;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 1.5rem;
     background-color: var(--light-color);
     z-index: 1000;
-    box-shadow: 0 0px 5px var(--grey-color);
     border-bottom: 1px solid var(--grey-color);
 }
 
@@ -92,6 +92,8 @@ nav ul li a {
 
 .hero img {
     width: 100%;
+    height: auto;
+    max-height: 90vh;
 }
 
 .banner {
@@ -156,7 +158,7 @@ main, section {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    margin: 3rem 5rem;
+    margin: 2rem 5rem;
     text-align: center;
 }
 
@@ -238,10 +240,20 @@ main, section {
     transform: scale(1.04);
 }
 
+.collections-container .card {
+    margin-bottom: 0;
+}
+
 .artist-image {
-    width: 400px;
-    height: 350px;
+    max-width: 400px;
+    max-height: 350px;
+    width: 100%;
+    height: auto;
     border-radius: 0.5rem;
+}
+
+.artist-info-container h2 {
+    font-size: 1.8rem;
 }
 
 .artist-info-container h2, .artist-info-container p {
@@ -256,18 +268,14 @@ main, section {
 }
 
 footer {
-    background-color: #F2E1CE;
-    padding: 2rem;
+    background-color: #f5e6d3;
+    padding: 1.5rem;
 }
 
 h3, h4 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 2rem;
     font-weight: 400;
-}
-
-footer p {
-    font-size: 1.1rem;
 }
 
 .fa-instagram {
@@ -340,18 +348,14 @@ hr {
     object-fit: cover;
 }
 
-.carousel-container {
-    position: relative;
-}
-
 .carousel-arrow {
-    background-color: var(--normal-filter);
+    background-color: transparent;
     border: none;
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 0.5rem 0.6rem;
+    padding: 0.5rem;
     z-index: 1;
 }
 
@@ -361,21 +365,21 @@ hr {
 }
 
 .carousel-arrow.left {
-    left: 10px;
+    left: 0;
 }
 
 .carousel-arrow.right {
-    right: 10px;
+    right: 0;
 }
 
 .art-info-container {
     gap: 0.1rem;
-    margin: 0 0 0.5rem 2%;
-    padding: 1rem 1.5rem;
+    margin: 0 0 0.7rem 1%;
+    padding: 0.7rem 1rem;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 96%;
+    width: 98%;
     background-color: var(--dark-color);
     border: none;
     border-radius: 0.5rem;
@@ -418,7 +422,7 @@ hr {
     }
 
     .artist-image {
-        margin: 0 auto;
+        align-self: center;
     }
 }
 
@@ -427,14 +431,14 @@ hr {
     nav {
         flex-direction: column;
         height: auto;
-        padding: 1.5rem;
+        padding: 0.6rem 1.5rem;
         position: fixed;
     }
 
     .hamburger-menu {
         display: block;
         position: absolute;
-        top: 1.5rem;
+        top: 0.6rem;
         left: 1.5rem;
         font-size: 2rem;
         cursor: pointer;
@@ -445,7 +449,7 @@ hr {
         display: none;
         flex-direction: column;
         width: 100%;
-        margin-top: 2.5rem;
+        margin: 2rem 0 1rem 0;
     }
 
     nav.open .nav-menu {
@@ -465,19 +469,11 @@ hr {
     .collections-container {
         flex-direction: column;
     }
-
-    .modal-content {
-        margin: 3rem 0;
-        padding: 2rem;
-        max-width: 90vw;
-        max-height: 90vh;
-    }
 }
 
 
 @media (max-width: 600px) {
     main, section {
-        margin: 3rem;
+        margin: 2rem 1.5rem;
     }
 }
-

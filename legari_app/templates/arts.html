@@ -4,10 +4,12 @@
 
 {% block content %}
     <div class="banner banner-intro {% if art_type %}banner-intro-{{art_type}}{% else %}banner-intro-general{% endif %} flex-center">
-        <h2>{% if art_type %}{{ title }}{% else %}Obras{% endif %}</h2>
+        <h2>{% if art_type %}{{ title }}{% else %}Explora las colecciones{% endif %}</h2>
     </div>
     {% if not art_type %}
-        {% include 'collections.html' %}
+        <section>
+            {% include 'collections.html' %}
+        </section>
     {% endif %}
     <main>
         <h2>Obras</h2>
