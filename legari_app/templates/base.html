@@ -24,7 +24,7 @@
 <body>
     <header>
         <nav class="flex" id="navbar">
-            <a href="/" class="flex">
+            <a href="/" class="flex logo-container">
                 <img src="{% static 'images/logo-legari.png' %}" title="Logo" class="logo">
             </a>
             <div class="hamburger-menu" id="menu-toggle">
@@ -33,6 +33,15 @@
             <ul class="flex nav-menu" id="nav-menu">
                 <li><a href="{% url 'artist' %}">El Artista</a></li>
                 <li><a href="{% url 'work' %}">Obras</a></li>
+                <li>
+                    <form action="{% url 'search' %}" method="POST" class="flex">
+                        {% csrf_token %}
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <input type="text" name="input_text" placeholder="Buscar una obra" maxlength="30">
+                    </form>
+                </li>
             </ul>
         </nav>                   
     </header>
@@ -78,6 +87,25 @@
             <p>© {{ current_year }} Fabian Legari Arte. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    {% if messages %}
+        <div id="toast-container" class="flex-col gap10">
+            {% for message in messages %}
+                <div class="toast {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toasts = document.querySelectorAll(".toast");
+            toasts.forEach(toast => {
+                setTimeout(() => {
+                    toast.remove();
+                }, 4000); // 4 segundos
+            });
+        });
+    </script>
     
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -96,6 +124,7 @@
             });
         });
     </script>
+    
     <script>
         function abrirModal(artId) {
             fetch(`/art/${artId}`)

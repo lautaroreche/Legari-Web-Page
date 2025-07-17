@@ -1,7 +1,7 @@
 {% load static %}
 
 
-<div class="grid-masonry">
+<div class="grid-masonry grid-columns-{{ columns }}">
     {% for art in arts %}
         <div>
             <div class="card" onclick="abrirModal({{ art.id }})" style="cursor: pointer;">
