@@ -33,6 +33,15 @@
             <ul class="flex nav-menu" id="nav-menu">
                 <li><a href="{% url 'artist' %}">El Artista</a></li>
                 <li><a href="{% url 'work' %}">Obras</a></li>
+                <li>
+                    <form action="{% url 'search' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="input_text" placeholder="Buscar una obra" maxlength="30">
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </nav>                   
     </header>

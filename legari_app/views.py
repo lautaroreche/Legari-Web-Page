@@ -23,10 +23,10 @@ def mech_arts(arts):
 
 
 def home(request):
-    context = {}
     arts = Art.objects.filter(starred=True)
-    ordered_arts = mech_arts(arts)
-    context['arts'] = ordered_arts
+    context = {
+        'arts': mech_arts(arts),
+    }
     return render(request, 'index.html', context)
 
 
@@ -34,32 +34,23 @@ def search(request):
     if request.method == "POST":
         input_text = request.POST.get("input_text", "").strip()
         if not input_text:
-            messages.error(request, "No has buscado ninguna obra")
-            messages.info(request, "Escribe el nombre de alguna obra en la barra de búsqueda")
-            return redirect("/feedback/")
-        if len(input_text) > 20:
-            messages.error(request, "Nombre de obra demasiado largo")
-            messages.info(request, "Escribe el nombre de alguna obra más corto")
-            return redirect("/feedback/")
+            messages.error(request, "No has buscado ningún producto")
+            messages.info(request, "Escribe el nombre de algún producto en la barra de búsqueda")
+            return redirect("/")
         arts = Art.objects.filter(title__icontains=input_text)
         if not arts:
-            messages.error(request, f'No hay ninguna obra similar a "{input_text}"')
-            messages.info(request, "Intenta buscar la obra de otra forma o busca otra obra")
-            return redirect("/feedback/")
-        # No cumple ningún caso mapeado así que es un redirect desde add fav o add cart, guardamos el nombre del producto para lo siguiente
-        request.session["input_text"] = input_text
-    
-    try:
-        # Viene de redirect cuando se agrega producto a fav o cart, así que cargamos de nuevo la misma página
-        input_text = request.session.get('input_text', '')
-        arts = Art.objects.filter(name__icontains=input_text)
-        return render(request, "search.html", {
-            "arts": arts,
-            "resultados": len(arts),
-            "query": input_text,
-        })
-    except Exception:
-        return redirect('/')
+            messages.error(request, f'No hay ningún producto similar a "{input_text}"')
+            messages.info(request, "Intenta buscar el producto de otra forma, o busca otro producto")
+            return redirect("/")
+        
+        context = {
+            'arts': mech_arts(arts),
+            'resultados': len(arts),
+            'query': input_text,
+        }
+        return render(request, "arts.html", context)
+    return redirect('/')
+
 
 
 def artist(request):

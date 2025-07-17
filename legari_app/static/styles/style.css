@@ -68,7 +68,7 @@ nav {
 }
 
 .nav-menu {
-    gap: 30px;
+    gap: 15px;
 }
 
 .nav-menu a {
@@ -431,7 +431,7 @@ hr {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
     nav {
         height: auto;
         flex-direction: column;
@@ -458,7 +458,10 @@ hr {
     nav.open .nav-menu {
         display: flex;
     }
+}
 
+
+@media (max-width: 767px) {
     .grid-masonry {
         column-count: 1;
     }
