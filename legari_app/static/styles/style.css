@@ -506,10 +506,7 @@ hr {
     .artist-image {
         align-self: center;
     }
-}
 
-
-@media (max-width: 900px) {
     nav {
         height: auto;
         flex-direction: column;
