@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.db.models import Q
 from legari_app.models import Art
 import json
 from itertools import zip_longest
@@ -40,7 +41,9 @@ def search(request):
             messages.error(request, "No has buscado ninguna obra")
             return redirect(referrer)
 
-        arts = Art.objects.filter(title__icontains=input_text)
+        
+        arts = Art.objects.filter(Q(title__icontains=input_text) | Q(materials__icontains=input_text))
+
         if not arts:
             messages.error(request, f'No hay ninguna obra similar a "{input_text}"')
             return redirect(referrer)
