@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="banner banner-intro banner-intro-obras-piedra-madera flex-center">
+        <h2>Resultados</h2>
+    </div>
+    <main>
+        {% include 'grid_art.html' %}
+    </main>
+    <section>
+        <h2>Explora las Colecciones</h2>
+        {% include 'collections.html' %}
+    </section>
+{% endblock %}

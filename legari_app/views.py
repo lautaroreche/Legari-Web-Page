@@ -26,6 +26,7 @@ def home(request):
     arts = Art.objects.filter(starred=True)
     context = {
         'arts': mech_arts(arts),
+        'columns': min(len(arts), 3)
     }
     return render(request, 'index.html', context)
 
@@ -33,23 +34,26 @@ def home(request):
 def search(request):
     if request.method == "POST":
         input_text = request.POST.get("input_text", "").strip()
+        referrer = request.META.get('HTTP_REFERER', '/')
+        
         if not input_text:
-            messages.error(request, "No has buscado ningún producto")
-            messages.info(request, "Escribe el nombre de algún producto en la barra de búsqueda")
-            return redirect("/")
+            messages.error(request, "No has buscado ninguna obra")
+            return redirect(referrer)
+
         arts = Art.objects.filter(title__icontains=input_text)
         if not arts:
-            messages.error(request, f'No hay ningún producto similar a "{input_text}"')
-            messages.info(request, "Intenta buscar el producto de otra forma, o busca otro producto")
-            return redirect("/")
-        
+            messages.error(request, f'No hay ninguna obra similar a "{input_text}"')
+            return redirect(referrer)
+
         context = {
             'arts': mech_arts(arts),
             'resultados': len(arts),
-            'query': input_text,
+            'columns': min(len(arts), 3),
+            'query': input_text
         }
-        return render(request, "arts.html", context)
-    return redirect('/')
+        return render(request, "search.html", context)
+
+    return redirect("/")
 
 
 
@@ -60,6 +64,7 @@ def artist(request):
 
 def work(request, art_type=None):
     context = {}
+
     if art_type is None:
         arts = Art.objects.all()
     else:
@@ -67,8 +72,9 @@ def work(request, art_type=None):
         if art_type in ART_TYPE_MAP:
             context['title'] = ART_TYPE_MAP[art_type]
             context['art_type'] = art_type
-    ordered_arts = mech_arts(arts)
-    context['arts'] = ordered_arts
+
+    context['arts'] = mech_arts(arts)
+    context['columns'] = min(len(arts), 3)
     return render(request, 'arts.html', context)
 
 
