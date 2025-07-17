@@ -4,6 +4,7 @@
     --grey-color: #ccc;
     --normal-filter: rgba(0, 0, 0, 0.5);
     --art-filter: rgba(0, 0, 0, 0.75);
+    --height-nav: 10vh;
 }
 
 * {
@@ -52,33 +53,36 @@ ul {
 }
 
 nav {
+    justify-content: end;
+    align-items: center;
+    padding: 0 1.5rem;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 10vh;
-    height: 10vh;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 1.5rem;
-    background-color: var(--light-color);
+    min-height: var(--height-nav);
+    height: var(--height-nav);
     z-index: 1000;
+    background-color: var(--light-color);
     border-bottom: 1px solid var(--grey-color);
 }
 
-nav ul {
+.nav-menu {
     gap: 30px;
 }
 
-nav ul li a {
+.nav-menu a {
     font-size: 1.125rem;
 }
 
-.logo {
+.logo-container {
     position: absolute;
+    top: calc(var(--height-nav) / 2);
     left: 50%;
-    top: 50%; 
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%) translatey(-50%);
+}
+
+.logo {
     width: 200px;
 }
 
@@ -87,13 +91,13 @@ nav ul li a {
 }
 
 .first {
-    padding-top: 10vh;
+    padding-top: var(--height-nav);
 }
 
 .hero img {
     width: 100%;
     height: auto;
-    max-height: 90vh;
+    max-height: calc(100vh - var(--height-nav));
 }
 
 .banner {
@@ -107,7 +111,7 @@ nav ul li a {
 }
 
 .banner-intro {
-    margin-top: 10vh;
+    margin-top: var(--height-nav);
     min-height: 50vh;
 }
 
@@ -429,17 +433,16 @@ hr {
 
 @media (max-width: 767px) {
     nav {
-        flex-direction: column;
         height: auto;
-        padding: 0.6rem 1.5rem;
-        position: fixed;
+        flex-direction: column;
     }
 
     .hamburger-menu {
         display: block;
         position: absolute;
-        top: 0.6rem;
+        top: calc(var(--height-nav) / 2);
         left: 1.5rem;
+        transform: translatey(-50%);
         font-size: 2rem;
         cursor: pointer;
         z-index: 1001;
@@ -449,17 +452,11 @@ hr {
         display: none;
         flex-direction: column;
         width: 100%;
-        margin: 2rem 0 1rem 0;
+        margin: calc(var(--height-nav) + 1rem) 0 1rem 0;
     }
 
     nav.open .nav-menu {
         display: flex;
-    }
-
-    .logo {
-        position: static;
-        transform: none;
-        margin: 0 auto;
     }
 
     .grid-masonry {
