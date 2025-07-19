@@ -31,10 +31,10 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
             <ul class="flex nav-menu" id="nav-menu">
-                <li><a href="{% url 'artist' %}">El Artista</a></li>
+                <li><a href="{% url 'artist' %}">El artista</a></li>
                 <li><a href="{% url 'work' %}">Obras</a></li>
                 <li>
-                    <form action="{% url 'search' %}" method="POST" class="flex">
+                    <form action="{% url 'search' %}" method="POST" class="search-form flex">
                         {% csrf_token %}
                         <button type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -51,19 +51,20 @@
     <footer>
         <div class="footer-container flex gap40">
             <div class="flex-col gap20">
-                <h3>Fabian Legari Arte</h3>
+                <h5>Fabian Legari Arte</h5>
                 <p>Esculturas únicas en hierro, piedra y madera</p>
-                <a href="https://www.instagram.com/fabianlegari/" target="_blank" rel="noopener noreferrer" class="link-button">
+                <div class="flex info-container gap10">
                     <i class="fa-brands fa-instagram"></i>
-                </a>
+                    <a href="https://www.instagram.com/fabianlegari/" target="_blank" rel="noopener noreferrer">@fabianlegari</a>
+                </div>
             </div>
             <div class="flex-col gap20">
-                <h4>Contacto</h4>
+                <h5>Contacto</h5>
                 <div class="flex-col gap10">
                     <div class="flex info-container gap10">
                         <i class="fa-solid fa-envelope"></i>
                         <a href="mailto:fabianlegariarte@gmail.com" class="link-compact">fabianlegariarte@gmail.com</a>
-                    </div>                                  
+                    </div>                                
                     <div class="flex info-container gap10">
                         <i class="fa-solid fa-phone"></i>
                         <p>+54 9 11 3561-3286</p>
@@ -72,7 +73,7 @@
                 <p>Buenos Aires, Argentina</p>
             </div>
             <div class="flex-col gap20">
-                <h4>Enlaces Rápidos</h4>
+                <h5>Enlaces Rápidos</h5>
                 <ul class="flex-col gap10">
                     <li><a href="/">Inicio</a></li>
                     <li><a href="{% url 'artist' %}">El artista</a></li>
@@ -102,7 +103,7 @@
             toasts.forEach(toast => {
                 setTimeout(() => {
                     toast.remove();
-                }, 4000); // 4 segundos
+                }, 4000);
             });
         });
     </script>

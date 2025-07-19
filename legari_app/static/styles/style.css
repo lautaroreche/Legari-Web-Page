@@ -18,39 +18,28 @@
 
 a {
     text-decoration: none;
-    color: var(--dark-color);
 }
 
 ul {
     list-style: none;
 }
 
-.flex {
+.flex, .flex-center, .flex-col {
     display: flex;
 }
 
 .flex-center {
-    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .flex-col {
-    display: flex;
     flex-direction: column;
 }
 
-.gap10 {
-    gap: 10px;
-}
-
-.gap20 {
-    gap: 20px;
-}
-
-.gap40 {
-    gap: 40px;
-}
+.gap10 { gap: 10px; }
+.gap20 { gap: 20px; }
+.gap40 { gap: 40px; }
 
 nav {
     justify-content: end;
@@ -76,7 +65,7 @@ nav {
     font-size: 1.125rem;
 }
 
-form {
+.search-form {
     align-items: center;
     border: 1px solid var(--grey-color);
     border-radius: 50px;
@@ -94,17 +83,25 @@ form input[type="text"] {
     width: 100%;
 }
 
-form button {
-    border: none;
+.search-form button, .general-button {
     background-color: #f5e6d3;
-    padding: 0.6rem;
-    border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border: none;
 }
 
-form button:hover {
+.search-form button:hover, .general-button:hover {
     background-color: #e3c8a5;
+}
+
+.search-form button {
+    padding: 0.6rem;
+    border-radius: 50%;
+}
+
+.general-button {
+    padding: 12px 32px;
+    border-radius: 0.4rem;
 }
 
 .fa-magnifying-glass {
@@ -134,7 +131,6 @@ form button:hover {
 .hero img {
     width: 100%;
     height: auto;
-    max-height: calc(100vh - var(--height-nav));
 }
 
 .banner {
@@ -173,13 +169,13 @@ form button:hover {
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344939/banner-download_pneppe.webp');
 }
 
-.banner p {
+.banner-download p {
     max-width: 700px;
     text-align: center;
     font-size: 1.125rem;
 }
 
-.banner h2, .banner p {
+h2, .banner p, h4, .card-info p, .fa-xmark, .fa-chevron-left, .fa-chevron-right, .art-info-container p, .toast {
     color: var(--light-color);
 }
 
@@ -201,11 +197,6 @@ main, section {
     gap: 30px;
     margin: 2rem 5rem;
     text-align: center;
-}
-
-.button {
-    background-color: var(--light-color);
-    padding: 12px 32px;
 }
 
 .grid-masonry {
@@ -282,10 +273,6 @@ main, section {
     background-color: var(--normal-filter);
 }
 
-.card-info h3, .card-info p {
-    color: var(--light-color);
-}
-
 .card:hover .card-overlay, .card:hover .card-info-art {
     opacity: 1;
 }
@@ -306,11 +293,12 @@ main, section {
     border-radius: 0.5rem;
 }
 
-.artist-info-container h2 {
+h1, h3 {
     font-size: 1.8rem;
+    font-weight: 300;
 }
 
-.artist-info-container h2, .artist-info-container p {
+h1, .artist-info-container p {
     max-width: 700px;
     text-align: left;
 }
@@ -326,10 +314,13 @@ footer {
     padding: 1.5rem;
 }
 
-h3, h4 {
+h4, h5 {
     font-size: 1.4rem;
-    line-height: 2rem;
     font-weight: 400;
+}
+
+h5 {
+    color: var(--dark-color);
 }
 
 .fa-instagram {
@@ -356,7 +347,7 @@ hr {
     background-color: var(--grey-color);
 }
 
-.copyright, .hidden-title {
+.copyright {
     text-align: center;
 }
 
@@ -390,7 +381,6 @@ hr {
 
 .fa-xmark {
     font-size: 2.5rem;
-    color: var(--light-color);
 }
 
 .modal-content img {
@@ -414,7 +404,6 @@ hr {
 }
 
 .fa-chevron-left, .fa-chevron-right {
-    color: var(--light-color);
     font-size: 2.5rem;
 }
 
@@ -440,15 +429,6 @@ hr {
     text-align: left;
 }
 
-
-.art-info-container h4, .art-info-container p {
-    color: var(--light-color);
-}
-
-.link-button {
-    align-self: flex-start;
-}
-
 #toast-container {
     position: fixed;
     top: calc(var(--height-nav) + 1rem);
@@ -459,7 +439,6 @@ hr {
 .toast {
     padding: 1rem;
     border-radius: 0.5rem;
-    color: var(--light-color);
     animation: fadeOut 5s forwards;
     opacity: 1;
     min-width: 200px;
@@ -483,19 +462,12 @@ hr {
         column-count: 2;
     }
 
-    .footer-container {
-        flex-direction: column;
-    }
-
-    .artist-info-container {
+    .footer-container, .artist-info-container, nav {
         flex-direction: column;
     }
 
     .hidden-title {
         display: block;
-    }
-
-    .artist-info-container h2 {
         text-align: center;
     }
 
@@ -509,7 +481,6 @@ hr {
 
     nav {
         height: auto;
-        flex-direction: column;
     }
 
     .hamburger-menu {

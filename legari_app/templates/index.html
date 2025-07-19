@@ -7,16 +7,17 @@
         <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp" alt="Objetos y arte visual">
     </div>
     <main>
-        <h2>Obras Destacadas</h2>
+        <h3>Obras Destacadas</h3>
         {% include 'grid_art.html' %}
     </main>
     <section>
-        <h2>Explora las Colecciones</h2>
+        <h3>Explora las Colecciones</h3>
         {% include 'collections.html' %}
     </section>
     <div class="banner banner-download flex-col flex-center gap20">
         <h2>Descarga el catálogo completo de obras</h2>
-        <p>Explora nuestra colección completa de esculturas en detalle. Descarga nuestro catálogo digital y descubre la historia detrás de cada pieza.</p>
-        <a href="{% static 'documents/Catálogo completo Fabian Legari.pdf' %}" download target="_blank" rel="noopener noreferrer" class="button">Descargar</a>
+        <p>Explora nuestra colección completa de esculturas en detalle.<br>
+        Descarga nuestro catálogo digital y descubre la historia detrás de cada pieza.</p>
+        <a href="{% static 'documents/Catálogo completo Fabian Legari.pdf' %}" download target="_blank" rel="noopener noreferrer" class="general-button">Descargar</a>
     </div>
 {% endblock %}
