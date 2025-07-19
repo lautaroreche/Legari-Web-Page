@@ -41,9 +41,7 @@ def search(request):
             messages.error(request, "No has buscado ninguna obra")
             return redirect(referrer)
 
-        
         arts = Art.objects.filter(Q(title__icontains=input_text) | Q(materials__icontains=input_text))
-
         if not arts:
             messages.error(request, f'No hay ninguna obra similar a "{input_text}"')
             return redirect(referrer)
@@ -55,7 +53,6 @@ def search(request):
             'query': input_text
         }
         return render(request, "search.html", context)
-
     return redirect("/")
 
 
