@@ -175,7 +175,7 @@ form input[type="text"] {
     font-size: 1.125rem;
 }
 
-h2, .banner p, h4, .card-info p, .fa-xmark, .fa-chevron-left, .fa-chevron-right, .art-info-container p, .toast {
+h2, .banner p, h4, .card-info p, .fa-xmark, .fa-chevron-left, .fa-chevron-right, .art-info-container p, .toast, .banner-download h3 {
     color: var(--light-color);
 }
 
