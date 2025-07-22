@@ -152,22 +152,5 @@
             }
         }
     </script>
-    
-    <script>
-        const img = document.getElementById("carousel-img");
-        const result = document.getElementById("zoomResult");
-        
-        result.innerHTML = `<img src="${img.src}" style="width:${img.width * 2}px; height:${img.height * 2}px;">`;
-        
-        img.addEventListener("mousemove", function(e) {
-            const rect = img.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const zoomImg = result.querySelector("img");
-            zoomImg.style.left = `-${x}px`;
-            zoomImg.style.top = `-${y}px`;
-        });
-    </script>
 </body>
 </html>
