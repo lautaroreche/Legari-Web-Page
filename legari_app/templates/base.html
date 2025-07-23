@@ -33,13 +33,13 @@
             <div class="hamburger-menu" id="menu-toggle">
                 <i class="fa-solid fa-bars"></i>
             </div>
-            <ul class="flex nav-menu" id="nav-menu">
+            <ul class="flex gap20 nav-menu" id="nav-menu">
                 <li><a href="{% url 'artist' %}">El artista</a></li>
                 <li><a href="{% url 'work' %}">Obras</a></li>
                 <li>
                     <form action="{% url 'search' %}" method="POST" class="search-form flex">
                         {% csrf_token %}
-                        <button type="submit">
+                        <button type="submit" aria-label="Buscar">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                         <input type="text" name="input_text" placeholder="Buscar una obra" maxlength="30">
@@ -53,7 +53,7 @@
     
     <footer>
         <div class="footer-container flex gap40">
-            <div class="flex-col gap20">
+            <div class="flex flex-col gap20">
                 <h5>Fabian Legari Arte</h5>
                 <p>Esculturas únicas en hierro, piedra y madera</p>
                 <div class="flex info-container gap10">
@@ -61,9 +61,9 @@
                     <a href="https://www.instagram.com/fabianlegari/" target="_blank" rel="noopener noreferrer">@fabianlegari</a>
                 </div>
             </div>
-            <div class="flex-col gap20">
+            <div class="flex flex-col gap20">
                 <h5>Contacto</h5>
-                <div class="flex-col gap10">
+                <div class="flex flex-col gap10">
                     <div class="flex info-container gap10">
                         <i class="fa-solid fa-envelope"></i>
                         <a href="mailto:fabianlegariarte@gmail.com" class="link-compact">fabianlegariarte@gmail.com</a>
@@ -75,9 +75,9 @@
                 </div>
                 <p>Buenos Aires, Argentina</p>
             </div>
-            <div class="flex-col gap20">
+            <div class="flex flex-col gap20">
                 <h5>Enlaces Rápidos</h5>
-                <ul class="flex-col gap10">
+                <ul class="flex flex-col gap10">
                     <li><a href="/">Inicio</a></li>
                     <li><a href="{% url 'artist' %}">El artista</a></li>
                     <li><a href="{% url 'work' 'obras-hierro' %}">Obras Hierro</a></li>
@@ -93,7 +93,7 @@
     </footer>
 
     {% if messages %}
-        <div id="toast-container" class="flex-col gap10">
+        <div id="toast-container" class="flex flex-col gap10">
             {% for message in messages %}
                 <div class="toast {{ message.tags }}">{{ message }}</div>
             {% endfor %}

@@ -1,7 +1,7 @@
 {% load static %}
 
 
-<div id="modal" class="flex-center" onclick="cerrarModal()" data-images='{{ art_images_json|safe }}'>
+<div id="modal" class="flex flex-center" onclick="cerrarModal()" data-images='{{ art_images_json|safe }}'>
     <div class="modal-content flex gap20" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="cerrarModal()">
             <i class="fa-solid fa-xmark"></i>
@@ -15,7 +15,7 @@
             </button>
         {% endif %}
         <img id="carousel-img" src="{{ art.image1.url }}" alt="{{ art.title }}">
-        <div class="art-info-container flex-col">
+        <div class="art-info-container flex flex-col">
             <h4>{{ art.title }}</h4>
             <p>{{ art.size }} - {{ art.materials }}</p>
             <p>{{ art.summary }}</p>
