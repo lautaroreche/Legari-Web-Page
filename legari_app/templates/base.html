@@ -16,16 +16,19 @@
     <link rel="icon" href="{% static 'images/favicon-light-mode.png' %}" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link rel="icon" href="{% static 'images/favicon-dark-mode.png' %}" type="image/x-icon" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Raleway:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="flex" id="navbar">
             <a href="/" class="flex logo-container">
-                <img src="{% static 'images/logo-legari.png' %}" title="Logo" class="logo">
+                <img src="{% static 'images/logo-legari.webp' %}" title="Logo" class="logo">
             </a>
             <div class="hamburger-menu" id="menu-toggle">
                 <i class="fa-solid fa-bars"></i>
