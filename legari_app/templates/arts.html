@@ -3,7 +3,7 @@
 
 
 {% block content %}
-    <div class="banner banner-intro {% if art_type %}banner-intro-{{art_type}}{% else %}banner-intro-general{% endif %} flex-center">
+    <div class="banner banner-intro {% if art_type %}banner-intro-{{art_type}}{% else %}banner-intro-general{% endif %} flex flex-center">
         <h2>{% if art_type %}{{ title }}{% else %}Explora las colecciones{% endif %}</h2>
     </div>
     {% if not art_type %}

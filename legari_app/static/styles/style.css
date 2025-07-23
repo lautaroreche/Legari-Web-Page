@@ -24,7 +24,7 @@ ul {
     list-style: none;
 }
 
-.flex, .flex-center, .flex-col {
+.flex {
     display: flex;
 }
 
@@ -58,7 +58,6 @@ nav {
 
 .nav-menu {
     align-items: center;
-    gap: 20px;
 }
 
 .nav-menu a {
@@ -79,7 +78,6 @@ form input[type="text"] {
     background: transparent;
     padding: 0.3rem 0.6rem;
     font-size: 1rem;
-    border-radius: 50px;
     width: 100%;
 }
 
@@ -113,7 +111,7 @@ form input[type="text"] {
     position: absolute;
     top: calc(var(--height-nav) / 2);
     left: 50%;
-    transform: translateX(-50%) translatey(-50%);
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .logo {
@@ -225,10 +223,6 @@ main, section {
     overflow: hidden;
     break-inside: avoid;
     border-radius: 0.5rem;
-}
-
-.card > img {
-    display: block;
 }
 
 .card img {
@@ -441,13 +435,12 @@ hr {
     padding: 1rem;
     border-radius: 0.5rem;
     animation: fadeOut 5s forwards;
-    opacity: 1;
     min-width: 200px;
     max-width: 300px;
     overflow-wrap: break-word;
 }
 
-.toast.error {
+.toast {
     background-color: #ef5350;
 }
 
@@ -489,7 +482,7 @@ hr {
         position: absolute;
         top: calc(var(--height-nav) / 2);
         left: 1.5rem;
-        transform: translatey(-50%);
+        transform: translateY(-50%);
         font-size: 2rem;
         cursor: pointer;
         z-index: 1001;
