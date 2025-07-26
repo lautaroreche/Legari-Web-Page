@@ -16,7 +16,7 @@ class Art(models.Model):
     size = models.CharField(_("Tamaño"), max_length=100)
     materials = models.CharField(_("Materiales"), max_length=250)
     art_type = models.CharField(_("Tipo"), max_length=100, choices=TYPE_CHOICES)
-    starred = models.BooleanField(_("Destacada"), default=False)
+    starred = models.BooleanField(_("Obra destacada"), default=False)
     image1 = CloudinaryField(_("Imagen 1"), resource_type='image')
     image2 = CloudinaryField(_("Imagen 2"), resource_type='image', blank=True, null=True)
     image3 = CloudinaryField(_("Imagen 3"), resource_type='image', blank=True, null=True)
