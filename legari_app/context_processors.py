@@ -1,5 +1,6 @@
 from datetime import datetime
 
 
-def current_year(request):
-    return {'current_year': datetime.now().year}
+def current_year():
+    context = {'current_year': datetime.now().year}
+    return context
