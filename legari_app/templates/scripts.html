@@ -1,0 +1,61 @@
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toasts = document.querySelectorAll(".toast");
+        toasts.forEach(toast => {
+            setTimeout(() => {
+                toast.remove();
+            }, 4000);
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.getElementById("navbar");
+        const toggle = document.getElementById("menu-toggle");
+        const links = document.querySelectorAll("#nav-menu a");
+    
+        toggle.addEventListener("click", () => {
+            nav.classList.toggle("open");
+        });
+    
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("open");
+            });
+        });
+    });
+</script>
+
+<script>
+    function abrirModal(artId) {
+        fetch(`/art/${artId}`)
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('modal-container').innerHTML = html;
+
+                const modal = document.getElementById("modal");
+                const imagenes = JSON.parse(modal.dataset.images);
+                let indiceActual = 0;
+
+                window.cambiarImagen = function(direccion) {
+                    if (imagenes.length <= 1) return;
+                    indiceActual = (indiceActual + direccion + imagenes.length) % imagenes.length;
+                    document.getElementById("carousel-img").src = imagenes[indiceActual];
+                }
+            });
+    }
+
+    function cerrarModal() {
+        const modal = document.getElementById('modal');
+        if (modal) {
+            modal.remove();
+        }
+    }
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        document.body.style.opacity = '1';
+    });
+</script>

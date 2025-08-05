@@ -28,72 +28,11 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="flex" id="navbar">
-            <a href="/" class="flex logo-container">
-                <img src="{% static 'images/logo-legari.webp' %}" title="Logo" class="logo">
-            </a>
-            <div class="hamburger-menu" id="menu-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-            <ul class="flex gap20 nav-menu" id="nav-menu">
-                <li><a href="{% url 'artist' %}">El artista</a></li>
-                <li><a href="{% url 'work' %}">Obras</a></li>
-                <li>
-                    <form action="{% url 'search' %}" method="POST" class="search-form flex">
-                        {% csrf_token %}
-                        <button type="submit" aria-label="Buscar">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <input type="text" name="input_text" placeholder="Buscar una obra" maxlength="30">
-                    </form>
-                </li>
-            </ul>
-        </nav>                   
-    </header>
+    {% include 'header.html' %}
 
     {% block content %}{% endblock %}
     
-    <footer>
-        <div class="footer-container flex gap40">
-            <div class="flex flex-col gap20">
-                <h5>Fabian Legari Arte</h5>
-                <p>Esculturas únicas en hierro, piedra y madera</p>
-                <div class="flex info-container gap10">
-                    <i class="fa-brands fa-instagram"></i>
-                    <a href="https://www.instagram.com/fabianlegari/" target="_blank" rel="noopener noreferrer">@fabianlegari</a>
-                </div>
-            </div>
-            <div class="flex flex-col gap20">
-                <h5>Contacto</h5>
-                <div class="flex flex-col gap10">
-                    <div class="flex info-container gap10">
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="mailto:fabianlegariarte@gmail.com" class="link-compact">fabianlegariarte@gmail.com</a>
-                    </div>                                
-                    <div class="flex info-container gap10">
-                        <i class="fa-solid fa-phone"></i>
-                        <p>+54 9 11 3561-3286</p>
-                    </div>
-                </div>
-                <p>Buenos Aires, Argentina</p>
-            </div>
-            <div class="flex flex-col gap20">
-                <h5>Enlaces Rápidos</h5>
-                <ul class="flex flex-col gap10">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="{% url 'artist' %}">El artista</a></li>
-                    <li><a href="{% url 'work' 'obras-hierro' %}">Obras Hierro</a></li>
-                    <li><a href="{% url 'work' 'obras-piedra-madera' %}">Obras Piedra & Madera</a></li>
-                    <li><a href="{% url 'work' 'obras-madera-hierro' %}">Obras Madera & Hierro</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="copyright">
-            &copy; {{ current_year }} Fabian Legari Arte. Todos los derechos reservados.
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 
     {% if messages %}
         <div id="toast-container" class="flex flex-col gap10">
@@ -103,66 +42,6 @@
         </div>
     {% endif %}
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toasts = document.querySelectorAll(".toast");
-            toasts.forEach(toast => {
-                setTimeout(() => {
-                    toast.remove();
-                }, 4000);
-            });
-        });
-    </script>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const nav = document.getElementById("navbar");
-            const toggle = document.getElementById("menu-toggle");
-            const links = document.querySelectorAll("#nav-menu a");
-        
-            toggle.addEventListener("click", () => {
-                nav.classList.toggle("open");
-            });
-        
-            links.forEach(link => {
-                link.addEventListener("click", () => {
-                    nav.classList.remove("open");
-                });
-            });
-        });
-    </script>
-    
-    <script>
-        function abrirModal(artId) {
-            fetch(`/art/${artId}`)
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('modal-container').innerHTML = html;
-    
-                    const modal = document.getElementById("modal");
-                    const imagenes = JSON.parse(modal.dataset.images);
-                    let indiceActual = 0;
-    
-                    window.cambiarImagen = function(direccion) {
-                        if (imagenes.length <= 1) return;
-                        indiceActual = (indiceActual + direccion + imagenes.length) % imagenes.length;
-                        document.getElementById("carousel-img").src = imagenes[indiceActual];
-                    }
-                });
-        }
-    
-        function cerrarModal() {
-            const modal = document.getElementById('modal');
-            if (modal) {
-                modal.remove();
-            }
-        }
-    </script>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            document.body.style.opacity = '1';
-        });
-    </script>
+    {% include 'scripts.html' %}
 </body>
 </html>

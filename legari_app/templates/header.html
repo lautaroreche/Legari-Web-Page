@@ -1,0 +1,26 @@
+{% load static %}
+
+
+<header>
+    <nav class="flex" id="navbar">
+        <a href="/" class="flex logo-container">
+            <img src="{% static 'images/logo-legari.webp' %}" title="Logo" class="logo">
+        </a>
+        <div class="hamburger-menu" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <ul class="flex gap20 nav-menu" id="nav-menu">
+            <li><a href="{% url 'artist' %}">El artista</a></li>
+            <li><a href="{% url 'work' %}">Obras</a></li>
+            <li>
+                <form action="{% url 'search' %}" method="POST" class="search-form flex">
+                    {% csrf_token %}
+                    <button type="submit" aria-label="Buscar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <input type="text" name="input_text" placeholder="Buscar una obra" maxlength="30">
+                </form>
+            </li>
+        </ul>
+    </nav>                   
+</header>
