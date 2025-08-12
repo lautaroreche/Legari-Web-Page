@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 from django.contrib import messages
 from django.db.models import Q
 from legari_app.models import Art
@@ -33,27 +33,35 @@ def home(request):
 
 
 def search(request):
-    if request.method == "POST":
-        input_text = request.POST.get("input_text", "").strip()
-        referrer = request.META.get('HTTP_REFERER', '/')
-        
-        if not input_text:
-            messages.error(request, "No has buscado ninguna obra")
-            return redirect(referrer)
+    if request.method != "GET":
+        return redirect("home")
 
-        arts = Art.objects.filter(Q(title__icontains=input_text) | Q(materials__icontains=input_text))
-        if not arts:
-            messages.error(request, f'No hay ninguna obra similar a "{input_text}"')
-            return redirect(referrer)
+    text = (request.GET.get("text") or "").strip()
+    referrer = request.META.get("HTTP_REFERER")
+    fallback = resolve_url("home")
 
-        context = {
-            'arts': mech_arts(arts),
-            'resultados': len(arts),
-            'columns': min(len(arts), 3),
-            'query': input_text
-        }
-        return render(request, "search.html", context)
-    return redirect("/")
+    if not text:
+        messages.error(request, "No has buscado ninguna obra.")
+        return redirect(referrer or fallback)
+
+    arts_qs = Art.objects.filter(
+        Q(title__icontains=text) | Q(materials__icontains=text)
+    )
+
+    if not arts_qs.exists():
+        messages.error(request, f'No hay ninguna obra similar a "{text}".')
+        return redirect(referrer or fallback)
+
+    arts = list(arts_qs)
+
+    context = {
+        "arts": mech_arts(arts),
+        "resultados": len(arts),
+        "columns": min(len(arts), 3),
+        "query": text,
+    }
+    return render(request, "search.html", context)
+
 
 
 

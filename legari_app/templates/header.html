@@ -13,12 +13,11 @@
             <li><a href="{% url 'artist' %}">El artista</a></li>
             <li><a href="{% url 'work' %}">Obras</a></li>
             <li>
-                <form action="{% url 'search' %}" method="POST" class="search-form flex">
-                    {% csrf_token %}
+                <form action="{% url 'search' %}" method="GET" class="search-form flex">
                     <button type="submit" aria-label="Buscar">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                    <input type="text" name="input_text" placeholder="Buscar una obra" maxlength="30">
+                    <input type="text" name="text" placeholder="Buscar una obra" maxlength="30">
                 </form>
             </li>
         </ul>
