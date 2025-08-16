@@ -3,16 +3,22 @@
 
 
 {% block content %}
-    <div class="hero first">
-        <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp?f=auto&q=auto&w=1410" alt="Objetos y arte visual" fetchpriority="high" loading="eager"
-        srcset="
-            https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp?f=auto&q=auto&w=768   768w,
-            https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp?f=auto&q=auto&w=1024  1024w,
-            https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp?f=auto&q=auto&w=1410  1410w,
-            https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp?f=auto&q=auto&w=2000  2000w,
-            https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp?f=auto&q=auto&w=2820  2820w"
-        />
+    <div class="hero">
+        <picture>
+            <source media="(orientation: landscape)" 
+                    srcset="https://res.cloudinary.com/dbmamjgiv/image/upload/v1755334875/OPCION_1_ohcz3m.webp?f=auto&q=auto&w=1410 1410w, 
+                            https://res.cloudinary.com/dbmamjgiv/image/upload/v1755334875/OPCION_1_ohcz3m.webp?f=auto&q=auto&w=768 768w,
+                            https://res.cloudinary.com/dbmamjgiv/image/upload/v1755334875/OPCION_1_ohcz3m.webp?f=auto&q=auto&w=1024 1024w" />
+    
+            <source media="(orientation: portrait)" 
+                    srcset="https://res.cloudinary.com/dbmamjgiv/image/upload/v1755334875/OPCION_3_yz74ij.webp?f=auto&q=auto&w=1410 1410w, 
+                            https://res.cloudinary.com/dbmamjgiv/image/upload/v1755334875/OPCION_3_yz74ij.webp?f=auto&q=auto&w=768 768w,
+                            https://res.cloudinary.com/dbmamjgiv/image/upload/v1755334875/OPCION_3_yz74ij.webp?f=auto&q=auto&w=1024 1024w" />
+    
+            <img src="https://res.cloudinary.com/dbmamjgiv/image/upload/v1752344938/hero-image_yepwpk.webp?f=auto&q=auto&w=1410" alt="Objetos y arte visual" fetchpriority="high" loading="eager"/>
+        </picture>
     </div>
+    
     <main>
         <h3>Obras destacadas</h3>
         {% include 'grid_art.html' %}
