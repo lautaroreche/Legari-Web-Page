@@ -10,5 +10,5 @@ def current_year(request):
 def ga_settings(request):
     return {
         "GA_MEASUREMENT_ID": getattr(settings, "GA_MEASUREMENT_ID", ""),
-        "debug": getattr(settings, "DEBUG", False),
+        "DEBUG": getattr(settings, "DEBUG", False),
     }

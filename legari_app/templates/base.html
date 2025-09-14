@@ -26,18 +26,15 @@
     <style>
         body { opacity: 0; }
     </style>
-    {% if not debug and GA_MEASUREMENT_ID %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_MEASUREMENT_ID }}"></script>
-    <script>
+    {% if not DEBUG and GA_MEASUREMENT_ID %}
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_MEASUREMENT_ID }}"></script>
+        <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-    
-        gtag('config', '{{ GA_MEASUREMENT_ID }}', {
-            'anonymize_ip': true,
-            'send_page_view': true
-        });
-    </script>
+
+        gtag('config', '{{ GA_MEASUREMENT_ID }}');
+        </script>
     {% endif %}
 </head>
 <body>
