@@ -105,6 +105,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'legari_app.context_processors.current_year',
+                "legari_app.context_processors.ga_settings",
             ],
         },
     },
@@ -178,3 +179,5 @@ CSRF_COOKIE_SECURE = env('CSRF_COOKIE_SECURE')
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 LOGIN_REDIRECT_URL = '/'
+
+GA_MEASUREMENT_ID = env("GA_MEASUREMENT_ID", default="")
