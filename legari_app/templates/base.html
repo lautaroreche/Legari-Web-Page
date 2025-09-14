@@ -26,7 +26,7 @@
     <style>
         body { opacity: 0; }
     </style>
-    {% if not DEBUG and GA_MEASUREMENT_ID %}
+    {% if GA_MEASUREMENT_ID %}
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_MEASUREMENT_ID }}"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
@@ -38,7 +38,6 @@
     {% endif %}
 </head>
 <body>
-    <p>DEBUG: {{ DEBUG }}</p>
     <p>GA_MEASUREMENT_ID: {{ GA_MEASUREMENT_ID }}</p>
     {% include 'header.html' %}
 
