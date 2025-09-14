@@ -38,6 +38,8 @@
     {% endif %}
 </head>
 <body>
+    <p>DEBUG: {{ DEBUG }}</p>
+    <p>GA_MEASUREMENT_ID: {{ GA_MEASUREMENT_ID }}</p>
     {% include 'header.html' %}
 
     {% block content %}{% endblock %}
