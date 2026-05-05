@@ -16,6 +16,10 @@
     letter-spacing: 0.3px;
 }
 
+html, body {
+    overscroll-behavior: none;
+}
+
 a {
     text-decoration: none;
 }
